@@ -5,6 +5,7 @@ const useFetch = (url) => {
     const [data, SetData] = useState(null)
     const [isLoading, SetisLoading] = useState(true)
     const [error, SetError] = useState(null)
+    // const abortControl = new AbortController()
     // const [named, setNamed] = useState('Bee')
     // const bleach = () => {
     //     setNamed('Bethrand')
@@ -15,7 +16,7 @@ const useFetch = (url) => {
       setTimeout(() => {
          
 
-         fetch(url)
+         fetch(url)  //{ signal: abortControl.signal }
          .then(res => {
             if (!res.ok) {
                 throw Error(' Could not fetch from the resource ')
@@ -28,15 +29,24 @@ const useFetch = (url) => {
                  SetError(null)
              })
                 .catch( err => {
-                    SetisLoading(false)
-                   SetError(err.message)
+                //     if (err.name === 'AbortError') {
+                //         console.log('Fetch aborted')
+                //     } else {
+                        SetisLoading(false)
+                        SetError(err.message)
+                //     }
                    
                 })
       }, 500);
+
+    //   return() => {
+    //     abortControl.abort()
+    //   }
+
     }, [url]);
 
     return { data, isLoading, error }
- 
+   
 }
  
 export default useFetch;
