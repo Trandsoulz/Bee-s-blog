@@ -3,7 +3,7 @@ import useFetch from "./useFetch";
 
 const Home = () => {
     
-    const { data: blogs, isLoading, error} = useFetch('http://localhost:2000/blogs')
+    const { data: blogs, isLoading, error} = useFetch('https://first-json-server-hosting.herokuapp.com/blogs')
 
     const allBlogs = 'All Blogs'
 

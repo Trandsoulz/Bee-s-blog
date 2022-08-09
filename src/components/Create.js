@@ -19,7 +19,7 @@ const Create = () => {
         };
         setIsLoading(true)
        
-        fetch('http://localhost:2000/blogs', {
+        fetch('https://first-json-server-hosting.herokuapp.com/blogs', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(blog)
