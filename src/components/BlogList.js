@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // import { FaTimes } from "react-icons/fa";
 const BlogList = ({ blogs, title }) => {
 
@@ -9,8 +11,10 @@ const BlogList = ({ blogs, title }) => {
             {
                 blogs.map( (blog) => (
                     <div className="blog-preview" key={ blog.id }>
+                        <Link to={`/blogs/${blog.id}`}>
                         <h2> { blog.title } </h2>
-                        <p> Written by { blog.author } </p>
+                        <h4> Written by { blog.author } </h4>
+                         </Link>
                         
                     </div>
                 ))
